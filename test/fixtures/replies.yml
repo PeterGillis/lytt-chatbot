@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shortname: MyString
+  string: MyString
+  reply_to: MyString
+  sent_at: MyString
+  integer: MyString
+
+two:
+  shortname: MyString
+  string: MyString
+  reply_to: MyString
+  sent_at: MyString
+  integer: MyString

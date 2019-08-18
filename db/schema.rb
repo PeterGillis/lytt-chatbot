@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_154401) do
+ActiveRecord::Schema.define(version: 2019_08_18_192844) do
+
+  create_table "messages", force: :cascade do |t|
+    t.string "text"
+    t.text "messages"
+    t.string "detected_language"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.string "shortname"
+    t.string "string"
+    t.string "reply_to"
+    t.string "sent_at"
+    t.string "integer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
