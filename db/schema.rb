@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_192844) do
+ActiveRecord::Schema.define(version: 2019_08_19_170758) do
 
   create_table "messages", force: :cascade do |t|
     t.string "text"
     t.text "messages"
-    t.string "detected_language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_192844) do
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "detected_language"
   end
 
 end

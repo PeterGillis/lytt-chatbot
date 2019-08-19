@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :sessions do
     # will match /sessions/{session-id}/messages
     # and /sessions/{session-id}/messages/{message-id}
-    resources :messages, only: [:index, :show]
+    resources :messages, only: [:index, :show, :create]
     # will match /sessions/{session-id}/replies
     resources :replies, only: [:index]
   end
