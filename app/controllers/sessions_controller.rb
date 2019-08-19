@@ -2,22 +2,25 @@ class SessionsController < ApplicationController
 
   def index
     @session = Session.all
-    # the following is test JSON only!
+    session_id = 'session-id'
+    url = "/sessions/{session-id}/messages"
+  end
 
-    render json: {
-    "text": "{user-text-input}",
-    "identifier": "{unique-generated-id}"
-
-    }
+  def create
+    @session = Session.new
   end
 
   def show
-    # @session = Session.find(params[:id])
+    @session = Session.find(params[:id])
+  end
+
+  def postback
+    puts request.body.read
   end
 
   private
 
   def session_params
-    params.require(:session).permit
+    params.require(:session).permit('session-id')
   end
 end
