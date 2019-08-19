@@ -9,12 +9,19 @@
 * Deployment instructions:
 
 Clone the repo:
+
 ``git clone https://github.com/PeterGillis/lytt-chatbot.git``
+
 change directory to the project:
+
 ``cd lytt-chatbot``
+
 Ensure you have the corect gems and yarn packages:
+
 ``bundle install, yarn install``
+
 start your server with your terminal:
+
 ``yarn start / rails s``
 
 Code Challenge
