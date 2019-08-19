@@ -1,14 +1,15 @@
 class MessagesController < ApplicationController
+  def index
+    @message = Message.all
+  end
 
-  def create
-    @message = Message.new
-    # sample text onlly 'successful reply'
-    render json: {
-      "message": {
-      "identifier": "{unique-generated-id}",
-      "detected_language": "es",
-      "timestamp": "2020-08-01T18:20:00Z"
-      }
-    }
+  def show
+    @message = Message.find(params[:id])
+  end
+
+  private
+
+  def session_params
+    params.require(:session).permit
   end
 end
