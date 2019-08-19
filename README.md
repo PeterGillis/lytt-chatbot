@@ -1,5 +1,3 @@
-# README
-
 # Code Challenge: Lytt Chat-bot
 
 * Ruby version 2.5.3
@@ -11,14 +9,13 @@
 * Deployment instructions:
 
 Clone the repo:
-''git clone https://github.com/PeterGillis/lytt-chatbot.git
-''
+``git clone https://github.com/PeterGillis/lytt-chatbot.git``
 change directory to the project:
-''cd lytt-chatbot''
+``cd lytt-chatbot``
 Ensure you have the corect gems and yarn packages:
-''bundle install, yarn install''
+``bundle install, yarn install``
 start your server with your terminal:
-''yarn start / rails s''
+``yarn start / rails s``
 
 Code Challenge
 Lytt, the first digital assistant that makes it easy for employees to communicate sensitive topics at work and is currently working in a new assistant functionality: recognize a message language and reply with the correct Bot message. Lytt asked me to develop this new REST API!
@@ -42,4 +39,4 @@ A user will join a Chat Session and can send any message into that session. User
 Reply with Bot Message
 The first message sent into the session defines the language that is going to be used in the entirety of the conversation between the user and the bot.
 
-contact: peterg.developer@gmail.com
+Contact: ``peterg.developer@gmail.com``
