@@ -1,12 +1,25 @@
 # Code Challenge: Lytt Chat-bot
 
+Lytt, the first digital assistant that makes it easy for employees to communicate sensitive topics at work and is currently working in a new assistant functionality:
+
+Recognise the language of ther users message and reply accordingly with the correct Bot message. ``Lytt asked me to develop this new REST API!``
+
+Guidelines
+Detect German, English and Spanish language only
+Receive a text message from a reporting person (user) in any language
+Reply with the correct Salutation on every user input, in the correct user session.
+
+I was asked to make something like this:
+
+<img src="https://camo.githubusercontent.com/95baf7619294bc868de2bf31883be2704b32e115/68747470733a2f2f692e696d6775722e636f6d2f753538537434582e706e67" alt="Chatbot example">
+
 * Ruby version 2.5.3
 
 * Rails version 5.2.3
 
 * System dependencies (run Gem and Yarn install in terminal)
 
-* Deployment instructions:
+# Deployment instructions:
 
 Clone the repo:
 
@@ -24,23 +37,13 @@ start your server with your terminal:
 
 ``yarn start / rails s``
 
-Code Challenge
-Lytt, the first digital assistant that makes it easy for employees to communicate sensitive topics at work and is currently working in a new assistant functionality: recognize a message language and reply with the correct Bot message. Lytt asked me to develop this new REST API!
-
-Guidelines
-Detect German, English and Spanish language only
-Receive a text message from a reporting person (user) in any language
-Reply with the correct Salutation on every user input, in the correct user session.
-
-I was asked to make something like this:
-
-<img src="https://camo.githubusercontent.com/95baf7619294bc868de2bf31883be2704b32e115/68747470733a2f2f692e696d6775722e636f6d2f753538537434582e706e67" alt="Chatbot example">
+# Important Requirements:
 
 1. the chat must:
 Receive a user message
 A user will join a Chat Session and can send any message into that session. User messages will always go through this process and messages should have an unique, randomly generated ID.
 
- IMPORTANT: The session is used to keep track of how many messages were sent between a user and the bot and if a refresh occurs, still display past messages from that session.
+ Note: The session is used to keep track of how many messages were sent between a user and the bot and if a refresh occurs, still display past messages from that session.
 
 2. The chat must:
 Reply with Bot Message
