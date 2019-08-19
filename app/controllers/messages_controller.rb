@@ -10,6 +10,6 @@ class MessagesController < ApplicationController
   private
 
   def session_params
-    params.require(:session).permit
+    params.require(:session).permit(:id)
   end
 end

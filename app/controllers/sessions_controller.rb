@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
   end
 
   def show
-    @session = Session.find(params[:id])
-    binding.pry
+    # @session = Session.find(params[:id])
+    params[:id]
   end
 
   def postback
