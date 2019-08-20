@@ -11,6 +11,7 @@ gem 'sqlite3'
 gem 'puma', '~> 3.11'
 gem 'pry'
 gem 'linguo'
+gem "cld"
 gem 'dotenv-rails', groups: [:development, :test]
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'

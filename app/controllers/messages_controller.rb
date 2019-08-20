@@ -15,11 +15,12 @@ class MessagesController < ApplicationController
     # @session = Session.new
     # 1. take the session id from the query
     sessionid = params[:session_id]
+
     # 2. access the body and take text and identifier
     body = JSON.parse request.body.read
     text = body[:text]
     identifier = body[:identifier]
-    # identifier
+
     # 3. If no text or no identifier respond with a 422 error
     if params[:text] && [:identifier]
       render json:
@@ -41,9 +42,12 @@ class MessagesController < ApplicationController
 
     end
     # 4. Check the language of the message
-    # Linguo.detect("message", 'LINGUO_API_KEY')
-    lang = Linguo.detect("Hola, mi nombre es Karen, me gusta el sol", "LINGUO_API_KEY")
-    response.body = JSON.parse
+
+    detected_language = CLD.detect_language("Hallo! Ich bin ein virtueller")
+
+    # Langugaes should be DE EN or ES
+    puts detected_language[:code]
+
     # 5. Check if a session with that id already exists
     # 6a. If not: create a new one
     # 6b. If exists: check whether the message language is the same as the
