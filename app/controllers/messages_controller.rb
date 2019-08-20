@@ -31,7 +31,7 @@ class MessagesController < ApplicationController
         }
       }
     else
-      render json:
+      render JSON:
       {
          "error": {
            "code": 422,
