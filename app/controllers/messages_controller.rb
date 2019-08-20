@@ -41,7 +41,9 @@ class MessagesController < ApplicationController
 
     end
     # 4. Check the language of the message
-
+    # Linguo.detect("message", 'LINGUO_API_KEY')
+    lang = Linguo.detect("Hola, mi nombre es Karen, me gusta el sol", "LINGUO_API_KEY")
+    response.body = JSON.parse
     # 5. Check if a session with that id already exists
     # 6a. If not: create a new one
     # 6b. If exists: check whether the message language is the same as the
