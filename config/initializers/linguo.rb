@@ -1,0 +1,1 @@
+Linguo.api_key = ENV['LINGUO_API_KEY']
