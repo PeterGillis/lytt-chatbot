@@ -46,7 +46,7 @@ class MessagesController < ApplicationController
     detected_language = CLD.detect_language("Hallo! Ich bin ein virtueller")
 
     # Languages should be 'DE' 'EN' or 'ES' only
-    # puts detected_language[:code]
+    puts detected_language[:code]
     # 5. Check if a session with that id already exists
     if Session.exists?(id: params[:session_id])
     # 6a. If not: create a new one
@@ -56,17 +56,17 @@ class MessagesController < ApplicationController
     # 6b. If exists: check whether the message language is the same as the
     #    session language.
 
-    if session.detected_language == message[:code]
-      message.Save
-    else
-      render JSON:
-      {
-        "error": {
-         "code": 422,
-         "message": "Unfortunately we don't have support for your language yet."
-        }
-      }
-    end
+    # if detected_language == message[:code]
+    #   message = Message.save
+    # else
+    #   render JSON:
+    #   {
+    #     "error": {
+    #      "code": 422,
+    #      "message": "Unfortunately we don't have support for your language yet."
+    #     }
+    #   }
+    # end
 
     # 6c. If not: answer with a 422 error
     # 7. Save the message
