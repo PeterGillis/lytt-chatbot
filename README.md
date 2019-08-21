@@ -1,4 +1,7 @@
+``Important: Please note the app is still in development, stay tuned for the production version!``
+
 # Code Challenge: Lytt Chat-bot
+
 
 Lytt, the first digital assistant that makes it easy for employees to communicate sensitive topics at work and is currently working in a new assistant functionality:
 
