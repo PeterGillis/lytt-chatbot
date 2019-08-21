@@ -30,6 +30,7 @@ class MessagesController < ApplicationController
           "message": "You need to provide an identifier in the request payload"
         }
       }
+      return
     end
     # 4. Check the language of the message
 
@@ -47,27 +48,19 @@ class MessagesController < ApplicationController
     # 6b. If exists: check whether the message language is the same as the
     #    session language.
 
-    # Note, code does not work yet;
-    # AbstractController::DoubleRenderError: Render
+    if user_language == session.detected_language
+      message = Message.save
 
-    #  and/or redirect were called multiple times in this action. Please note
-    # that you may only call render OR redirect, and at most once per action.
-    # Also note that neither redirect nor render terminate execution of
-    # the action
-
-    # if user_language == session.detected_language
-    #   message = Message.save
-
-    # else
-    #   render JSON:
-    #   {
-    #     "error": {
-    #      "code": 406,
-    #      "message": "Unfortunately we don't have support
-    #      for your language yet."
-    #     }
-    #   }
-    # end
+    else
+      render JSON:
+      {
+        "error": {
+         "code": 422,
+         "message": "Unfortunately we don't have support
+         for your language yet."
+        }
+      }
+    end
 
     # 6c. If not: answer with a 422 error
     # 7. Save the message

@@ -13,6 +13,7 @@ gem 'pry'
 gem 'linguo'
 gem "cld"
 gem 'dotenv-rails', groups: [:development, :test]
+gem "nokogiri", ">= 1.10.4"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
