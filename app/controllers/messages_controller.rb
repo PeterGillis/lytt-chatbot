@@ -12,52 +12,44 @@ class MessagesController < ApplicationController
   end
 
   def create
-    # @session = Session.new
+    # @message = Message.new
     # 1. take the session id from the query
-    sessionid = params[:session_id]
+    session_id = params[:session_id]
 
     # 2. access the body and take text and identifier
     body = JSON.parse request.body.read
-    text = body[:text]
+    user_text = body[:text]
     identifier = body[:identifier]
 
     # 3. If no text or no identifier respond with a 422 error
-    if params[:text] && [:identifier]
-      render json:
-      {
-        "message": {
-          "identifier": "{unique-generated-id}",
-          "detected_language": "es",
-          "timestamp": "2020-08-01T18:20:00Z"
-        }
-      }
-    else
+    if !user_text || !identifier
       render JSON:
       {
-         "error": {
-           "code": 422,
-           "message": "Unfortunately we don't have support for your language yet."
+        "error": {
+          "code": 422,
+          "message": "You need to provide an identifier in the request payload"
         }
       }
-
     end
     # 4. Check the language of the message
 
-    detected_language = CLD.detect_language("Hallo! Ich bin ein virtueller")
+    user_language = CLD.detect_language(user_text)[:code]
 
-    # Languages should be 'DE' 'EN' or 'ES' only
-    puts detected_language[:code]
+    # Languages should be 'de' 'en' or 'es' only
+
     # 5. Check if a session with that id already exists
     if Session.exists?(id: params[:session_id])
-    # 6a. If not: create a new one
+      # 6a. If not: create a new one
+      session = Session.find_by(params[:id])
     else
-      session = Session.create(id: '1', detected_language: 'de')
+      session = Session.create(id: session_id, detected_language: user_language)
     end
     # 6b. If exists: check whether the message language is the same as the
     #    session language.
 
-    # if detected_language == message[:code]
+    # if user_language == session.detected_language
     #   message = Message.save
+
     # else
     #   render JSON:
     #   {
