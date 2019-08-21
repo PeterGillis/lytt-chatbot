@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   def show
     # @message = Message.find(params[:id])
     # 1. Get the message identifier
-    # 2. Check if there is an exitsing message
+    # 2. Check if there is an existing message
     # 2a. If there is no message, return 404 error
     # 2b. If there is a message, success response
   end
@@ -52,21 +52,22 @@ class MessagesController < ApplicationController
     # 6a. If not: create a new one
     else
       session = Session.create(id: '1', detected_language: 'de')
-      # session.id = '1'
-      # session.code = 'de'
     end
     # 6b. If exists: check whether the message language is the same as the
     #    session language.
-    # if session.detected_language[:code] == message.language
-    #   mesage.Save
-    # else
-    #   render {
-    #    "error": {
-    #      "code": 422,
-    #      "message": "Unfortunately we don't have support for your language yet."
-    #     }
-    #   }
-    # end
+
+    if session.detected_language == message[:code]
+      message.Save
+    else
+      render JSON:
+      {
+        "error": {
+         "code": 422,
+         "message": "Unfortunately we don't have support for your language yet."
+        }
+      }
+    end
+
     # 6c. If not: answer with a 422 error
     # 7. Save the message
     # 8. Respond with 201 and with the correct message
