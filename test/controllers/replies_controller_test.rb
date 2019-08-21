@@ -5,3 +5,6 @@ class RepliesControllerTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
 end
+
+# * Controller should Return the correct reply based upon validations done
+# in the messages conroller and in the correct language.

@@ -5,3 +5,7 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
 end
+
+# * Controller should check the language of the user input and validate the
+# prescence of the ID, in order for the reply controller to return the correct
+# YML file with the correct reply language.

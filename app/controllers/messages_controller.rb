@@ -47,6 +47,14 @@ class MessagesController < ApplicationController
     # 6b. If exists: check whether the message language is the same as the
     #    session language.
 
+    # Note, code does not work yet;
+    # AbstractController::DoubleRenderError: Render
+
+    #  and/or redirect were called multiple times in this action. Please note
+    # that you may only call render OR redirect, and at most once per action.
+    # Also note that neither redirect nor render terminate execution of
+    # the action
+
     # if user_language == session.detected_language
     #   message = Message.save
 
@@ -54,8 +62,9 @@ class MessagesController < ApplicationController
     #   render JSON:
     #   {
     #     "error": {
-    #      "code": 422,
-    #      "message": "Unfortunately we don't have support for your language yet."
+    #      "code": 406,
+    #      "message": "Unfortunately we don't have support
+    #      for your language yet."
     #     }
     #   }
     # end

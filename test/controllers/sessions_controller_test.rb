@@ -5,3 +5,6 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
 end
+
+# controller just needs to makes sure the casic crud methods are present,
+# as other routes are nested within. resources routees took care of this mainly
