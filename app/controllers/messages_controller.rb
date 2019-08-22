@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class MessagesController < ApplicationController
   def index
-    @message = Message.all
+    # @message = Message.all
   end
 
   def show
@@ -30,40 +32,48 @@ class MessagesController < ApplicationController
           "message": "You need to provide an identifier in the request payload"
         }
       }
-      return
+     return
     end
     # 4. Check the language of the message
-
-    user_language = CLD.detect_language(user_text)[:code]
-
-    # Languages should be 'de' 'en' or 'es' only
+    detected_language = CLD.detect_language(user_text)[:code]
+    # Languages should be 'de' 'en' or 'es' only, it not reply with 422
+    puts detected_language
+    puts "hola amor"
+    unless detected_language.include?('de' || 'en' || 'es')
+      render JSON:
+      {
+        "error": {
+          "code": 422,
+          "message": "Unfortunately we don't have support
+         for your language yet"
+        }
+      }
+    end
 
     # 5. Check if a session with that id already exists
     if Session.exists?(id: params[:session_id])
       # 6a. If not: create a new one
       session = Session.find_by(params[:id])
     else
-      session = Session.create(id: session_id, detected_language: user_language)
+      session = Session.create(id: session_id, detected_language: detected_language)
     end
     # 6b. If exists: check whether the message language is the same as the
     #    session language.
-
-    if user_language == session.detected_language
-      message = Message.save
-
-    else
+    unless detected_language == session.detected_language
+      #  message = Message.save
       render JSON:
       {
         "error": {
          "code": 422,
-         "message": "Unfortunately we don't have support
-         for your language yet."
+         "message": "sorry, wrong input."
         }
       }
+      return
     end
 
     # 6c. If not: answer with a 422 error
     # 7. Save the message
+
     # 8. Respond with 201 and with the correct message
   end
 

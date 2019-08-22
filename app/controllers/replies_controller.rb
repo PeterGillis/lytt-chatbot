@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RepliesController < ApplicationController
   def index
     # @reply = Reply.all
@@ -14,22 +16,22 @@ class RepliesController < ApplicationController
     # * ES template for Spanish
 
     # sample German template:
-    render JSON:
-    {
-      "replies": [
-        {
-          "message": "Hallo! Ich bin ein virtueller Assistent und ich bin hier, um zu helfen. Was möchtest du tun?",
-          "shortname": "de.salutation",
-          "reply_to": "{first-message-identifier}",
-          "sent_at": "{timestamp}"
-        },
-        {
-          "message": "In Zukunft werde ich in der Lage sein, jede deiner Fragen zu beantworten",
-          "shortname": "de.after_salutation",
-          "reply_to": "{second-message-identifier}",
-          "sent_at": "{timestamp}"
-        }
-      ]
-    }
- end
+    # render JSON:
+    # {
+    #   "replies": [
+    #     {
+    #       "message": "Hallo! Ich bin ein virtueller Assistent und ich bin hier, um zu helfen. Was möchtest du tun?",
+    #       "shortname": "de.salutation",
+    #       "reply_to": "{first-message-identifier}",
+    #       "sent_at": "{timestamp}"
+    #     },
+    #     {
+    #       "message": "In Zukunft werde ich in der Lage sein, jede deiner Fragen zu beantworten",
+    #       "shortname": "de.after_salutation",
+    #       "reply_to": "{second-message-identifier}",
+    #       "sent_at": "{timestamp}"
+    #     }
+    #   ]
+    # }
+  end
 end

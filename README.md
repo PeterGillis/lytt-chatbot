@@ -1,4 +1,5 @@
-``Important: Please note the app is still in development, stay tuned for the production version!``
+``Important: Please note the app is still in development, testing and front end are still to come!
+Stay tuned for the production version!``
 
 # Code Challenge: Lytt Chat-bot
 
