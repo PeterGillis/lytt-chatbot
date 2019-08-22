@@ -37,8 +37,7 @@ class MessagesController < ApplicationController
     # 4. Check the language of the message
     detected_language = CLD.detect_language(user_text)[:code]
     # Languages should be 'de' 'en' or 'es' only, it not reply with 422
-    puts detected_language
-    puts "hola amor"
+
     unless detected_language.include?('de' || 'en' || 'es')
       render JSON:
       {
@@ -59,8 +58,19 @@ class MessagesController < ApplicationController
     end
     # 6b. If exists: check whether the message language is the same as the
     #    session language.
-    unless detected_language == session.detected_language
-      #  message = Message.save
+    if detected_language == session.detected_language
+      # 7. Save the message
+      message = Message.create(text: user_text, identifier: identifier)
+      # 8. Respond with 201 and with the correct message
+      render JSON:
+      {
+        "error": {
+         "code": 201,
+         "message": "success, message created."
+        }
+      }
+    else
+      # 6c. If not: answer with a 422 error
       render JSON:
       {
         "error": {
@@ -70,11 +80,6 @@ class MessagesController < ApplicationController
       }
       return
     end
-
-    # 6c. If not: answer with a 422 error
-    # 7. Save the message
-
-    # 8. Respond with 201 and with the correct message
   end
 
   private
