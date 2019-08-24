@@ -2,6 +2,9 @@
 
 class RepliesController < ApplicationController
   def index
+    session = Session.find(params[:session_id])
+    render json: session.replies
+  end
     # @reply = Reply.all
     # "/sessions/{session-id}/replies"
     # 1.  Check if the session ID exists
@@ -33,5 +36,5 @@ class RepliesController < ApplicationController
     #     }
     #   ]
     # }
-  end
+#   end
 end
