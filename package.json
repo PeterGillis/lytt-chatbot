@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "node-fetch": "^2.6.1",
-    "react-chat-window": "^1.2.1"
+    "react-chat-window": "^1.2.1",
+    "xmlhttprequest-ssl": "^1.6.2"
   }
 }
