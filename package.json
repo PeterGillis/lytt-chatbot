@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "highlight.js": "^10.4.1",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "react-chat-window": "^1.2.1",
     "xmlhttprequest-ssl": "^1.6.2"
   }
